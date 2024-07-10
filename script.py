@@ -112,3 +112,6 @@ if __name__ == "__main__":
             decrypt_folder(target, password)
     else:
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
+
+print("Developed by Nik")
+print("https://github.com/sftp-nik/")
