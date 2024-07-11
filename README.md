@@ -26,14 +26,14 @@ pip install cryptography
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/sftp-nik/encryption-tool.git
-cd encryption-tool
+git clone https://github.com/sftp-nik/EncryptVault.git
+cd EncryptVault
 ```
 
 2. Run the script:
 
 ```bash
-python encrypt_decrypt.py
+python script.py
 ```
 
 3. Follow the prompts:
@@ -81,7 +81,7 @@ Decrypts all encrypted files in a specified folder.
 To encrypt a file:
 
 ```bash
-python encrypt_decrypt.py
+python script.py
 Do you want to (E)ncrypt or (D)ecrypt? E
 Enter the file or folder path: path/to/your/file.txt
 Enter the password: your_password
@@ -90,7 +90,7 @@ Enter the password: your_password
 To decrypt a file:
 
 ```bash
-python encrypt_decrypt.py
+python script.py
 Do you want to (E)ncrypt or (D)ecrypt? D
 Enter the file or folder path: path/to/your/file.txt.enc
 Enter the password: your_password
@@ -101,6 +101,9 @@ Enter the password: your_password
 - Ensure to keep your password safe as it is required for both encryption and decryption.
 - Deleting the original files after encryption enhances security.
 - Always verify the SHA-512 hash of the encrypted files to ensure data integrity.
+
+## Disclaimer 
+This is developed only for educational purpose only, use this on your own risk!
 
 ## Developed by
 
