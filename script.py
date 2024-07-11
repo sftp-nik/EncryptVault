@@ -64,8 +64,7 @@ def encrypt_file(file_path: str, password: str) -> None:
         f.write(encrypted_data)
     os.remove(file_path)
     print(f"Encrypted and deleted {file_path} -> {file_path}.enc")
-    print("Developed by Nik")
-
+    
 # Decrypt a file
 def decrypt_file(file_path: str, password: str) -> None:
     with open(file_path, "rb") as f:
@@ -76,7 +75,7 @@ def decrypt_file(file_path: str, password: str) -> None:
         f.write(data)
     os.remove(file_path)
     print(f"Decrypted and deleted {file_path} -> {decrypted_path}")
-    print("Developed by Nik")
+    
 
 # Encrypt all files in a folder
 def encrypt_folder(folder_path: str, password: str) -> None:
@@ -103,11 +102,13 @@ if __name__ == "__main__":
             encrypt_file(target, password)
             hash_value = generate_sha512_hash(target + ".enc")
             print(f"SHA-512 hash of encrypted file: {hash_value}")
-            print("Developed by Nik")
+           
+           
         elif os.path.isdir(target):
             encrypt_folder(target, password)
             print(f"Encrypted all files in {target}")
-            print("Developed by Nik")
+        
+        
     elif action == "D":
         if os.path.isfile(target):
             decrypt_file(target, password)
@@ -116,5 +117,3 @@ if __name__ == "__main__":
     else:
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
-print("GitHub : https://github.com/sftp-nik/")
-print("LinkedIn : https://www.linkedin.com/in/thenikkulkarni/")
