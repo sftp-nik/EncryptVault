@@ -1,4 +1,3 @@
-
 import os
 import hashlib
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
@@ -117,5 +116,5 @@ if __name__ == "__main__":
     else:
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
-
-print("https://github.com/sftp-nik/")
+print("GitHub : https://github.com/sftp-nik/")
+print("LinkedIn : https://www.linkedin.com/in/thenikkulkarni/")
