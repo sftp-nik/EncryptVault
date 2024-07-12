@@ -110,8 +110,8 @@ This is developed only for educational purpose only, use this on your own risk!
 
 ## Developed by
 
-Nikhil Kulkarni (Nik)
-Follow me on LikedIn: https://www.linkedin.com/in/thenikkulkarni/
+- Nikhil Kulkarni (Nik)
+- Follow me on LikedIn: https://www.linkedin.com/in/thenikkulkarni/
 
 ## License
 
