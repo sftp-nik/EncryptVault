@@ -6,6 +6,18 @@ from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 import getpass
 
+# ASCII Art and credits
+ascii_art = """
+ _   _ _   _    
+| \ | (_) | |   
+|  \| |_  | | __
+| . ` | | | |/ /
+| |\  | | |   < 
+|_| \_|_| |_|\_\!
+"""
+print(ascii_art)
+
+
 def derive_key(password: str, salt: bytes) -> bytes:
     kdf = Scrypt(
         salt=salt,
@@ -100,5 +112,5 @@ if __name__ == "__main__":
     else:
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
-    print("Developed by Nik!")
+    print("Developed by nik")
     print("GitHub repo: https://github.com/sftp-nik")
