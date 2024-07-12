@@ -4,6 +4,9 @@
 
 This project is a Python-based tool for encrypting and decrypting files and folders using AES encryption with SHA-512 hashing. It allows you to securely protect your sensitive data and files.
 
+![Screenshot 2024-07-12 114316](https://github.com/user-attachments/assets/e71faf5c-5525-4bdc-a93c-7b05a47d237b)
+
+
 ## Features
 
 - **File Encryption/Decryption**: Encrypt or decrypt individual files using a password.
