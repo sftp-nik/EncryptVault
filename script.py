@@ -1,17 +1,12 @@
 import os
 import hashlib
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
-from base64 import urlsafe_b64encode, urlsafe_b64decode
-import base64
 import getpass
 
-def derive_key(password: str, salt: bytes) -> bytes:    # key derivation function
-
+def derive_key(password: str, salt: bytes) -> bytes:
     kdf = Scrypt(
         salt=salt,
         length=32,
@@ -23,8 +18,7 @@ def derive_key(password: str, salt: bytes) -> bytes:    # key derivation functio
     key = kdf.derive(password.encode())
     return key
 
-
-def encrypt_data(data: bytes, password: str) -> bytes:     # Encrypt data
+def encrypt_data(data: bytes, password: str) -> bytes:
     salt = os.urandom(16)
     key = derive_key(password, salt)
     iv = os.urandom(16)
@@ -35,7 +29,6 @@ def encrypt_data(data: bytes, password: str) -> bytes:     # Encrypt data
     encrypted_data = encryptor.update(padded_data) + encryptor.finalize()
     return salt + iv + encrypted_data
 
-# Decrypt data
 def decrypt_data(encrypted_data: bytes, password: str) -> bytes:
     salt = encrypted_data[:16]
     iv = encrypted_data[16:32]
@@ -47,7 +40,6 @@ def decrypt_data(encrypted_data: bytes, password: str) -> bytes:
     data = unpadder.update(padded_data) + unpadder.finalize()
     return data
 
-# Generate SHA-512 hash of the file
 def generate_sha512_hash(file_path: str) -> str:
     sha512 = hashlib.sha512()
     with open(file_path, "rb") as f:
@@ -55,7 +47,6 @@ def generate_sha512_hash(file_path: str) -> str:
             sha512.update(chunk)
     return sha512.hexdigest()
 
-# Encrypt a file
 def encrypt_file(file_path: str, password: str) -> None:
     with open(file_path, "rb") as f:
         file_data = f.read()
@@ -64,8 +55,7 @@ def encrypt_file(file_path: str, password: str) -> None:
         f.write(encrypted_data)
     os.remove(file_path)
     print(f"Encrypted and deleted {file_path} -> {file_path}.enc")
-    
-# Decrypt a file
+
 def decrypt_file(file_path: str, password: str) -> None:
     with open(file_path, "rb") as f:
         encrypted_data = f.read()
@@ -75,16 +65,13 @@ def decrypt_file(file_path: str, password: str) -> None:
         f.write(data)
     os.remove(file_path)
     print(f"Decrypted and deleted {file_path} -> {decrypted_path}")
-    
 
-# Encrypt all files in a folder
 def encrypt_folder(folder_path: str, password: str) -> None:
     for root, _, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
             encrypt_file(file_path, password)
 
-# Decrypt all files in a folder
 def decrypt_folder(folder_path: str, password: str) -> None:
     for root, _, files in os.walk(folder_path):
         for file in files:
@@ -102,13 +89,9 @@ if __name__ == "__main__":
             encrypt_file(target, password)
             hash_value = generate_sha512_hash(target + ".enc")
             print(f"SHA-512 hash of encrypted file: {hash_value}")
-           
-           
         elif os.path.isdir(target):
             encrypt_folder(target, password)
             print(f"Encrypted all files in {target}")
-        
-        
     elif action == "D":
         if os.path.isfile(target):
             decrypt_file(target, password)
@@ -117,3 +100,5 @@ if __name__ == "__main__":
     else:
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
+    print("Developed by Nik!")
+    print("GitHub repo: https://github.com/sftp-nik")
