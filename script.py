@@ -63,7 +63,7 @@ def encrypt_file(file_path: str, password: str) -> None:
     with open(file_path, "rb") as f:
         file_data = f.read()
     encrypted_data = encrypt_data(file_data, password)
-    with open(file_path + ".enc", "wb") as f:
+    with open(file_path + ".nik", "wb") as f:
         f.write(encrypted_data)
     os.remove(file_path)
     print(f"Encrypted and deleted {file_path} -> {file_path}.enc")
@@ -72,7 +72,7 @@ def decrypt_file(file_path: str, password: str) -> None:
     with open(file_path, "rb") as f:
         encrypted_data = f.read()
     data = decrypt_data(encrypted_data, password)
-    decrypted_path = file_path.replace(".enc", "")
+    decrypted_path = file_path.replace(".nik", "")
     with open(decrypted_path, "wb") as f:
         f.write(data)
     os.remove(file_path)
@@ -87,7 +87,7 @@ def encrypt_folder(folder_path: str, password: str) -> None:
 def decrypt_folder(folder_path: str, password: str) -> None:
     for root, _, files in os.walk(folder_path):
         for file in files:
-            if file.endswith(".enc"):
+            if file.endswith(".nik"):
                 file_path = os.path.join(root, file)
                 decrypt_file(file_path, password)
 
