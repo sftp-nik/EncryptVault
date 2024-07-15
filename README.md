@@ -106,7 +106,7 @@ Enter the password: your_password
 - Always verify the SHA-512 hash of the encrypted files to ensure data integrity.
 
 ## Disclaimer 
-This is developed only for educational purpose only, use this on your own risk!
+This is developed only for educational purpose only, use this on your own risk! Remember your password, if you lost then you'll also lost your data!
 
 ## Developed by
 
