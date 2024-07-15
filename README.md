@@ -2,7 +2,7 @@
 
 ### File and Folder Encryption/Decryption Tool
 
-This project is a Python-based tool for encrypting and decrypting files and folders using AES encryption with SHA-512 hashing. It allows you to securely protect your sensitive data and files.
+This project is a Python-based tool for encrypting and decrypting files and folders using AES encryption with SHA-512 hashing. It allows you to securely protect your sensitive data and files. Which further after some changes you can use as Ransomware, I've one. If you want then message me!
 
 ![Screenshot 2024-07-12 114316](https://github.com/user-attachments/assets/e71faf5c-5525-4bdc-a93c-7b05a47d237b)
 
