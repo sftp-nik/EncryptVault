@@ -104,6 +104,7 @@ Enter the password: your_password
 - Ensure to keep your password safe as it is required for both encryption and decryption.
 - Deleting the original files after encryption enhances security.
 - Always verify the SHA-512 hash of the encrypted files to ensure data integrity.
+- This is just a demo of Ransomware, if you want fully functional reach me out!
 
 ## Disclaimer 
 This is developed only for educational purpose only, use this on your own risk! Remember your password, if you lost then you'll also lost your data!
