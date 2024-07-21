@@ -36,8 +36,9 @@ cd EncryptVault
 2. Run the script:
 
 ```bash
-python main.py
+python3 main.py
 ```
+or you can run in any IDE
 
 3. Follow the prompts:
 
