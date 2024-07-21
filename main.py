@@ -7,7 +7,7 @@ from cryptography.hazmat.backends import default_backend
 import getpass
 
 # ASCII Art and credits
-ascii_art = """
+ascii_art = """ 
  _   _ _   _    
 | \ | (_) | |   
 |  \| |_  | | __
@@ -113,4 +113,4 @@ if __name__ == "__main__":
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
     print("Developed by nik")
-    print("GitHub repo: https://github.com/sftp-nik")
+    print("GitHub: https://github.com/sftp-nik/")
