@@ -113,4 +113,4 @@ if __name__ == "__main__":
         print("Invalid action. Please choose 'E' for encrypt or 'D' for decrypt.")
 
     print("Developed by nik")
-    print("GitHub: https://github.com/sftp-nik/")
+    print("Follow on Github: GitHub: https://github.com/sftp-nik/")
