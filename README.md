@@ -1,119 +1,106 @@
-# EncryptVault
 
-### File and Folder Encryption/Decryption Tool
 
-This project is a Python-based tool for encrypting and decrypting files and folders using AES encryption with SHA-512 hashing. It allows you to securely protect your sensitive data and files. Which further after some changes you can use as Ransomware, I've one. If you want then message me!
+EncryptVault
 
-![Screenshot 2024-07-12 114316](https://github.com/user-attachments/assets/e71faf5c-5525-4bdc-a93c-7b05a47d237b)
+EncryptVault is a Python-based tool designed to securely encrypt and decrypt files and folders using AES encryption and SHA-512 hashing. Originally developed as an educational demonstration of encryption techniques used in ransomware attacks, it now serves as a robust mechanism for securing sensitive data.
 
-## Features
+Features
 
-- **File Encryption/Decryption**: Encrypt or decrypt individual files using a password.
-- **Folder Encryption/Decryption**: Encrypt or decrypt all files within a specified folder.
-- **SHA-512 Hashing**: Generate SHA-512 hash for encrypted files to verify integrity.
+File Encryption/Decryption: Encrypt or decrypt individual files using a password.
 
-## Prerequisites
+Folder Encryption/Decryption: Encrypt or decrypt all files within a specified folder.
 
-- Python 3.x
-- `cryptography` library
+SHA-512 Hashing: Generate SHA-512 hashes for encrypted files to verify integrity.
 
-You can install the required library using pip:
+Executable Version: Use the precompiled .exe file for ease of use without needing Python installed.
 
-```bash
+Prerequisites (for Python Script)
+
+Python 3.x
+
+cryptography library
+
+Install the required library using pip:
+
 pip install cryptography
-```
 
-## Usage
+Usage
 
-1. Clone the repository:
+1. Using the Python Script
 
-```bash
+Clone the repository:
+
 git clone https://github.com/sftp-nik/EncryptVault.git
 cd EncryptVault
-```
 
-2. Run the script:
+Run the script:
 
-```bash
 python3 main.py
-```
-or you can run in any IDE
 
-3. Follow the prompts:
+Follow the prompts:
 
-- Choose whether to encrypt (E) or decrypt (D) files or folders.
-- Enter the file or folder path.
-- Enter the password.
+Choose whether to encrypt (E) or decrypt (D) files or folders.
 
-## Functions
+Enter the file or folder path.
 
-### Derive Key
+Enter the password.
 
-Derives a cryptographic key from the given password and salt using the Scrypt key derivation function.
+2. Using the Executable File
 
-### Encrypt Data
+Download the EncryptVault.exe file from the releases section.
 
-Encrypts the given data using AES encryption in CBC mode with PKCS7 padding.
+Double-click the .exe file to launch the application.
 
-### Decrypt Data
+Follow the on-screen prompts just like in the Python script.
 
-Decrypts the given encrypted data using AES decryption in CBC mode with PKCS7 padding.
+Key Functions
 
-### Generate SHA-512 Hash
+Derive Key: Uses the Scrypt key derivation function to derive a cryptographic key from the password and salt.
 
-Generates a SHA-512 hash of the specified file for integrity verification.
+Encrypt Data: Encrypts data using AES in CBC mode with PKCS7 padding.
 
-### Encrypt File
+Decrypt Data: Decrypts AES-encrypted data in CBC mode.
 
-Encrypts a specified file and deletes the original file.
+Generate SHA-512 Hash: Verifies the integrity of encrypted files.
 
-### Decrypt File
+Encrypt/Decrypt Files and Folders: Handles encryption and decryption of specified files or entire directories.
 
-Decrypts a specified encrypted file and deletes the encrypted file.
-
-### Encrypt Folder
-
-Encrypts all files in a specified folder.
-
-### Decrypt Folder
-
-Decrypts all encrypted files in a specified folder.
-
-## Example
+Example Commands (Python Script)
 
 To encrypt a file:
 
-```bash
-python script.py
+python3 main.py
 Do you want to (E)ncrypt or (D)ecrypt? E
 Enter the file or folder path: path/to/your/file.txt
 Enter the password: your_password
-```
 
 To decrypt a file:
 
-```bash
-python script.py
+python3 main.py
 Do you want to (E)ncrypt or (D)ecrypt? D
 Enter the file or folder path: path/to/your/file.txt.enc
 Enter the password: your_password
-```
 
-## Note
+Notes
 
-- Ensure to keep your password safe as it is required for both encryption and decryption.
-- Deleting the original files after encryption enhances security.
-- Always verify the SHA-512 hash of the encrypted files to ensure data integrity.
-- This is just a demo of Ransomware, if you want fully functional reach me out!
+Keep your password safe—it's required for both encryption and decryption.
 
-## Disclaimer 
-This is developed only for educational purpose only, use this on your own risk! Remember your password, if you lost then you'll also lost your data!
+Use the executable file for convenience if Python isn't installed on your system.
 
-## Developed by
+Always verify SHA-512 hashes to ensure data integrity.
 
-- Nikhil Kulkarni (Nik)
-- Follow me on LikedIn: https://www.linkedin.com/in/thenikkulkarni/
+Deleting original files after encryption enhances security.
 
-## License
+Disclaimer
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This tool is developed for educational purposes only. Use it responsibly. If the password is lost, encrypted data cannot be recovered.
+
+Developed By
+
+Nikhil Kulkarni (Nik)
+
+Follow on LinkedIn: https://www.linkedin.com/in/thenikkulkarni/
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
