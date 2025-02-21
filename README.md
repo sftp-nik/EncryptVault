@@ -1,6 +1,3 @@
-
----
-
 # EncryptVault
 
 EncryptVault is a Python-based tool designed to securely encrypt and decrypt files and folders using AES encryption and SHA-512 hashing. Originally developed as an educational demonstration of encryption techniques used in ransomware attacks, it now serves as a robust mechanism for securing sensitive data.
