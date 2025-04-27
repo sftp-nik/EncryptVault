@@ -105,7 +105,7 @@ This tool is developed for educational purposes only. Use it responsibly. If the
 ## Developed By
 
 - **Nikhil Kulkarni (Nik)**
-- Follow on LinkedIn: [https://www.linkedin.com/in/thenikkulkarni/](https://www.linkedin.com/in/thenikkulkarni/)
+- Follow on LinkedIn: [https://www.linkedin.com/in/thenikkulkarni/](https://www.linkedin.com/in/sshnik/)
 
 ---
 
