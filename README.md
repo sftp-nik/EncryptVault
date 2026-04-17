@@ -114,3 +114,8 @@ This tool is developed for educational purposes only. Use it responsibly. If the
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---
+
+## Bonus: Daily Routine Tracker Android App
+
+A new Android app scaffold is available in `android-routine-tracker/`.
+See `android-routine-tracker/README.md` for build instructions and APK output path.
