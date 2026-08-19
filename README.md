@@ -1,116 +1,160 @@
-# EncryptVault
+# EncryptVault CyberSuite
 
-EncryptVault is a Python-based tool designed to securely encrypt and decrypt files and folders using AES encryption and SHA-512 hashing. Originally developed as an educational demonstration of encryption techniques used in ransomware attacks, it now serves as a robust mechanism for securing sensitive data.
+EncryptVault CyberSuite is an educational Python mega project that combines the original AES file vault with a collection of small defensive security tools. It is designed for safe labs, portfolio demos, and blue-team learning rather than offensive exploitation.
 
-## Features
+## Included Mini Projects
 
-- **File Encryption/Decryption**: Encrypt or decrypt individual files using a password.
-- **Folder Encryption/Decryption**: Encrypt or decrypt all files within a specified folder.
-- **SHA-512 Hashing**: Generate SHA-512 hashes for encrypted files to verify integrity.
-- **Executable Version**: Use the precompiled `.exe` file for ease of use without needing Python installed.
+- **Mini SOC Dashboard**: Aggregates findings from log analysis, file integrity monitoring, and secrets scanning into JSONL events.
+- **Web Vulnerability Scanner**: Performs passive checks for missing security headers, sensitive forms over HTTP, and common error disclosure patterns.
+- **OSINT Investigation Tool**: Normalizes a target, resolves domains, and reports basic email/domain intelligence.
+- **Phishing URL Detector**: Scores URLs with heuristics such as raw IP hosts, non-HTTPS links, suspicious keywords, and `@` authority tricks.
+- **File Integrity Monitor**: Creates and compares SHA-512 file baselines for tamper detection.
+- **Password Attack Simulator**: Estimates password strength using safe local complexity checks.
+- **Network Intrusion Detector**: Parses logs for suspicious keywords, repeated IP activity, and port indicators.
+- **Malware Behavior Analyzer**: Performs static behavior heuristics and SHA-256 fingerprinting for suspicious files.
+- **Secrets Scanner for Git**: Searches working trees for common token, key, and credential patterns while skipping `.git` internals.
+- **Encrypted File Vault**: Encrypts and decrypts files or folders using AES-CBC with Scrypt key derivation.
 
----
+## Safety and Scope
 
-## Prerequisites (for Python Script)
+This project intentionally uses passive or local analysis techniques. Do not scan systems, URLs, repositories, or logs unless you own them or have explicit permission.
 
-- Python 3.x
-- `cryptography` library
+## Prerequisites
 
-Install the required library using pip:
+- Python 3.9+
+- `cryptography`
+
+Install dependencies:
 
 ```bash
-pip install cryptography
+python3 -m pip install cryptography
 ```
 
----
+## Quick Start
 
-## Usage
+Show all commands:
 
-### 1. **Using the Python Script**
+```bash
+python3 main.py --help
+```
 
-1. **Clone the repository**:
+Encrypt a file or folder:
 
-   ```bash
-   git clone https://github.com/sftp-nik/EncryptVault.git
-   cd EncryptVault
-   ```
+```bash
+python3 main.py vault encrypt path/to/file.txt --password "change-me"
+```
 
-2. **Run the script**:
+Decrypt a `.nik` file or folder of `.nik` files:
 
-   ```bash
-   python3 main.py
-   ```
+```bash
+python3 main.py vault decrypt path/to/file.txt.nik --password "change-me"
+```
 
-3. **Follow the prompts**:
-
-   - Choose whether to encrypt (E) or decrypt (D) files or folders.
-   - Enter the file or folder path.
-   - Enter the password.
-
-### 2. **Using the Executable File**
-
-1. Download the `EncryptVault.exe` file from the [releases](https://github.com/sftp-nik/EncryptVault/releases) section.
-2. Double-click the `.exe` file to launch the application.
-3. Follow the on-screen prompts just like in the Python script.
-
----
-
-## Key Functions
-
-- **Derive Key**: Uses the Scrypt key derivation function to derive a cryptographic key from the password and salt.
-- **Encrypt Data**: Encrypts data using AES in CBC mode with PKCS7 padding.
-- **Decrypt Data**: Decrypts AES-encrypted data in CBC mode.
-- **Generate SHA-512 Hash**: Verifies the integrity of encrypted files.
-- **Encrypt/Decrypt Files and Folders**: Handles encryption and decryption of specified files or entire directories.
-
----
-
-## Example Commands (Python Script)
-
-### To encrypt a file:
+Run the legacy interactive vault prompt:
 
 ```bash
 python3 main.py
-Do you want to (E)ncrypt or (D)ecrypt? E
-Enter the file or folder path: path/to/your/file.txt
-Enter the password: your_password
 ```
 
-### To decrypt a file:
+## Tool Examples
+
+### Mini SOC Dashboard
 
 ```bash
-python3 main.py
-Do you want to (E)ncrypt or (D)ecrypt? D
-Enter the file or folder path: path/to/your/file.txt.enc
-Enter the password: your_password
+python3 main.py soc --logs auth.log firewall.log --secrets-path . --fim-path . --output soc_events.jsonl
 ```
 
----
+### Web Vulnerability Scanner
+
+```bash
+python3 main.py web-scan https://example.com
+```
+
+### OSINT Investigation Tool
+
+```bash
+python3 main.py osint example.com
+python3 main.py osint analyst@example.com
+```
+
+### Phishing URL Detector
+
+```bash
+python3 main.py phishing "http://192.0.2.10/login/verify-account"
+```
+
+### File Integrity Monitor
+
+Create a baseline:
+
+```bash
+python3 main.py fim ./important-files --init
+```
+
+Check for changes:
+
+```bash
+python3 main.py fim ./important-files
+```
+
+### Password Attack Simulator
+
+```bash
+python3 main.py password --password "CorrectHorseBatteryStaple!2026"
+```
+
+### Network Intrusion Detector
+
+```bash
+python3 main.py nid ./security.log --threshold 5
+```
+
+### Malware Behavior Analyzer
+
+```bash
+python3 main.py malware ./sample.bin
+```
+
+### Secrets Scanner for Git
+
+```bash
+python3 main.py secrets .
+```
+
+## Output
+
+Each module prints severity-tagged findings in the terminal. The SOC command also appends machine-readable JSON lines to `soc_events.jsonl` by default.
+
+Example finding:
+
+```text
+[HIGH   ] secrets: GitHub token - src/config.py:12
+```
+
+## Project Structure
+
+```text
+main.py          # All CLI modules and encryption functions
+README.md        # Documentation and examples
+EncryptVault.exe # Existing precompiled legacy executable
+```
 
 ## Notes
 
-- Keep your password safe—it's required for both encryption and decryption.
-- Use the executable file for convenience if Python isn't installed on your system.
-- Always verify SHA-512 hashes to ensure data integrity.
-- Deleting original files after encryption enhances security.
-
----
+- Encrypted files use the `.nik` extension.
+- Use `--keep-original` with the vault command if you do not want source files deleted after encryption or decryption.
+- Keep passwords safe. Encrypted data cannot be recovered if the password is lost.
+- The scanners are heuristic-based and can produce false positives or false negatives.
 
 ## Disclaimer
 
-This tool is developed for educational purposes only. Use it responsibly. If the password is lost, encrypted data cannot be recovered.
-
----
+This software is for education, authorized security testing, and defensive analysis only. The authors and contributors are not responsible for misuse.
 
 ## Developed By
 
 - **Nikhil Kulkarni (Nik)**
-- Follow on LinkedIn: [https://www.linkedin.com/in/thenikkulkarni/](https://www.linkedin.com/in/sshnik/)
-
----
+- GitHub: [https://github.com/sftp-nik/](https://github.com/sftp-nik/)
 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
----
